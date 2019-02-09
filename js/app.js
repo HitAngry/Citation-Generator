@@ -7,11 +7,12 @@ new Vue({
   },
   methods: {
     capitalizeFirstLetter(string) {
+
       return string.charAt(0).toUpperCase() + string.slice(1);
     },
     pointToEnd(string) {
       if(string.charAt(string.length-1) !== '.') {
-        string = [...string, '.'];
+        string = string + '.'
       } 
       return string
     },
