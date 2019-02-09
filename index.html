@@ -15,10 +15,12 @@
       <div class="site-wrapper-inner">
         <div class="cover-container">
           <div class="inner cover">
-            <p class="lead text-left citation">{{activeCitation.text}}</p>
-            <small class="blockquote-footer text-right author">{{activeCitation.author}} dans <cite title="Source Title">{{activeCitation.origin}}</cite></small>
+            <p class="lead text-left citation">{{generatedCitation.text}}</p>
+            <small class="blockquote-footer text-right author">{{generatedCitation.author}} dans <cite title="Source Title">{{generatedCitation.origin}}</cite></small>
             <p class="lead mt-5 text-left">
-              <a href="#" @click.prevent="random" class="btn btn-lg btn-default refresh"><i class="fas fa-sync-alt"></i></a>
+              <a href="#" v-on:click="generate()" class="btn btn-lg btn-default refresh"><i class="fas fa-sync-alt"></i></a>
+              <a href="#" v-on:click="updateFilter('actuelle')"  v-bind:class="{ 'btn-success' : filter === 'actuelle', 'btn-default' : filter != 'actuelle' }" class="btn btn-lg refresh">actuelle</a>
+              <a href="#" v-on:click="updateFilter('la majorité des')"  v-bind:class="{ 'btn-success' : filter === 'la majorité des', 'btn-default' : filter != 'la majorité des' }" class="btn btn-lg refresh">la majorité des</a>
             </p>
           </div>
         </div>
